@@ -1,4 +1,16 @@
 # Gitdoccciazu
+Ran
+ng build --prod
+The resulting dist folder has a subfolder gitdoccciazu, which contains the files including index.html
+
+## Docker
+From the above we need the following lines in Dockerfile
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+##  From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
+COPY ./dist/gitdoccciazu /usr/share/nginx/html
+
+since the container is built using nginx:alpine
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
@@ -25,3 +37,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
